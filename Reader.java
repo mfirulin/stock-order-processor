@@ -13,7 +13,7 @@ public class Reader {
             String line;
             while ((line = br.readLine()) != null) {
                 // RegexParser.parse(line);
-                // PlainPairParser.parse(line);
+                // SplitParser.parse(line);
                 SubstrParser.parse(line);
             }
             System.out.println(Storage.size());

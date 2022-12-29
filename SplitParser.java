@@ -1,4 +1,4 @@
-public class PairParser {
+public class SplitParser {
 
     public static void parse(String line) {
         if (line.startsWith("\t<A")) {
