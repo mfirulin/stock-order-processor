@@ -1,22 +1,22 @@
-import java.util.Map;
-import java.util.HashMap;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class Sorter {
-    private static Map<Integer, Order> orders = new HashMap<>();
+    private static Set<Order> orders = new TreeSet<>();
 
     public static void put(Order order) {
-        orders.put(order.id, order);
+        orders.add(order);
     }
 
-    public static void delete(int id) {
-        orders.remove(id);
-    }
-
-    public static int size() {
-        return orders.size();
+    public static void delete(Order order) {
+        orders.remove(order);
     }
 
     public static void sort() {
-        orders.values().forEach(Storage::put);
+        orders.forEach(Storage::put);
+    }
+    
+    public static int size() {
+        return orders.size();
     }
 }

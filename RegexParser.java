@@ -22,7 +22,7 @@ public class RegexParser {
             matcher = DEL_PATTERN.matcher(line);
             if (matcher.matches()) {
                 int id = Integer.parseInt(matcher.group("id"));
-                Sorter.delete(id);
+                Sorter.delete(new Order(id));
             }
         }
     }

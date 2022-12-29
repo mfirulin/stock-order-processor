@@ -10,8 +10,8 @@ import java.util.HashSet;
 import java.util.Locale;
 
 public class Generator {
-    private static final int MAX_ORDERS = 2300000;
-    private static final int MAX_STOCKS = 100;
+    private static final int MAX_ORDERS = 2200000;
+    private static final int MAX_STOCKS = 220;
     private static final int MAX_PRICE = 100;
     private static final int DEL_FACTOR = 17;
     private static final String PATH = "stock_orders.xml";

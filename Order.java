@@ -23,7 +23,7 @@ public class Order implements Comparable<Order> {
 
     @Override
     public int compareTo(Order other) {
-        return (int)id - other.id;
+        return id - other.id;
     }
 
     @Override

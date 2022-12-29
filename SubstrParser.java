@@ -34,6 +34,6 @@ public class SubstrParser {
         int start = line.indexOf('\"');
         int end = line.indexOf('\"', start + 1);
         
-        Sorter.delete(Integer.parseInt(line.substring(start + 1, end)));
+        Sorter.delete(new Order(Integer.parseInt(line.substring(start + 1, end))));
     }
 }

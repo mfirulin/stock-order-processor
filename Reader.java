@@ -16,9 +16,10 @@ public class Reader {
                 // SplitParser.parse(line);
                 SubstrParser.parse(line);
             }
-            System.out.println("Orders:" + Sorter.size());
             Sorter.sort();
-            System.out.println("Books:" + Storage.size() + " min:" + Storage.min() + " max:" + Storage.max());
+            System.out.println("Orders:" + Sorter.size());
+            System.out.println("Books: " + Storage.size());
+            Storage.info();
        }
     }
 }

@@ -23,7 +23,7 @@ public class SplitParser {
     private static void handleDeleteOrder(String line) {
         String[] substr = getSubstrings(line); // Get 3 strings
         int id = getId(substr[1]);
-        Sorter.delete(id);
+        Sorter.delete(new Order(id));
     }
 
     private static int getId(String id) {
