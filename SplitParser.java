@@ -16,14 +16,14 @@ public class SplitParser {
         float price = Float.parseFloat(getValueStringFromPair(substr[3]));
         int volume = Integer.parseInt(getValueStringFromPair(substr[4]));
         int id = getId(substr[5]);
-        Storage.put(new Order(id, book, operation, price, volume));
+        Sorter.put(new Order(id, book, operation, price, volume));
     }
 
     // <DeleteOrder orderId="16" />
     private static void handleDeleteOrder(String line) {
         String[] substr = getSubstrings(line); // Get 3 strings
         int id = getId(substr[1]);
-        Storage.delete(id);
+        Sorter.delete(id);
     }
 
     private static int getId(String id) {

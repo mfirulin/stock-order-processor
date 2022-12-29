@@ -17,12 +17,12 @@ public class RegexParser {
             Order.Operation operation = Order.Operation.valueOf(matcher.group("operation"));
             float price = Float.parseFloat(matcher.group("price"));
             int volume = Integer.parseInt(matcher.group("volume"));
-            Storage.put(new Order(id, book, operation, price, volume));
+            Sorter.put(new Order(id, book, operation, price, volume));
         } else {
             matcher = DEL_PATTERN.matcher(line);
             if (matcher.matches()) {
                 int id = Integer.parseInt(matcher.group("id"));
-                Storage.delete(id);
+                Sorter.delete(id);
             }
         }
     }

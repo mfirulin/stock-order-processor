@@ -26,13 +26,14 @@ public class SubstrParser {
         int volume = Integer.parseInt(values[3]);
         int id = Integer.parseInt(values[4]);
 
-        Storage.put(new Order(id, book, operation, price, volume));
+        Sorter.put(new Order(id, book, operation, price, volume));
     }
 
     // <DeleteOrder orderId="16" />
     private static void handleDeleteOrder(String line) {
         int start = line.indexOf('\"');
         int end = line.indexOf('\"', start + 1);
-        Storage.delete(Integer.parseInt(line.substring(start + 1, end)));
+        
+        Sorter.delete(Integer.parseInt(line.substring(start + 1, end)));
     }
 }
