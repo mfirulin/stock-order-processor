@@ -1,31 +1,32 @@
 import java.util.Objects;
 import java.util.Map;
-import java.util.HashMap;
+import java.util.TreeMap;
 
 public class Book {
     
-    private static class Record {
+    private static class Pair {
         int sell;
         int buy;
     }
 
     private final String name;
-    private Map<Float, Record> records = new HashMap<>();
+    private Map<Float, Pair> pairs = new TreeMap<>();
 
     public Book(String name) {
         this.name = name;
     }
 
     public void put(Order order) {
-        Record record = records.get(order.price);
-        if (record == null) {
-            record = new Record();
-            records.put(order.price, record);
+        Pair pair = pairs.get(order.price);
+        if (pair == null) {
+            pair = new Pair();
+            pairs.put(order.price, pair);
         }
+
         if (order.operation == Order.Operation.SELL) {
-            record.sell += order.volume;
+            pair.sell += order.volume;
         } else {
-            record.buy += order.volume;
+            pair.buy += order.volume;
         }
         
     }
@@ -37,16 +38,14 @@ public class Book {
         builder.append(name);
         builder.append(' ');
         builder.append("size=");
-        builder.append(records.size());
-        // builder.append(' ');
-        // for (Map.Entry<Float, Record> entry : records.entrySet()) {
-        //     builder.append(entry.getKey());
-        //     builder.append(':');
-        //     builder.append(entry.getValue().sell);
-        //     builder.append(',');
-        //     builder.append(entry.getValue().buy);
-        //     builder.append(' ');
-        // }
+        builder.append(pairs.size());
+        builder.append('\n');
+        for (Map.Entry<Float, Pair> entry : pairs.entrySet()) {
+            builder.append(
+                String.format("%6d %7.1f %6d\n", 
+                entry.getValue().buy, entry.getKey(), entry.getValue().sell)
+            );
+        }
         builder.append(']');
         return builder.toString();
     }

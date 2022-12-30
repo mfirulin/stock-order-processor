@@ -1,8 +1,8 @@
 import java.util.Set;
-import java.util.TreeSet;
+import java.util.HashSet;
 
 public class Sorter {
-    private static Set<Order> orders = new TreeSet<>();
+    private static Set<Order> orders = new HashSet<>();
 
     public static void put(Order order) {
         orders.add(order);

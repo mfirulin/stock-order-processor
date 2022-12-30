@@ -22,6 +22,6 @@ public class Storage {
     }
 
     public static void info() {
-        books.values().forEach(b -> System.out.println(b));
+        books.values().forEach(System.out::println);
     }
 }

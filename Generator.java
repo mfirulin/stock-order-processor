@@ -10,9 +10,9 @@ import java.util.HashSet;
 import java.util.Locale;
 
 public class Generator {
-    private static final int MAX_ORDERS = 2200000;
-    private static final int MAX_STOCKS = 220;
-    private static final int MAX_PRICE = 100;
+    private static final int MAX_ORDERS = 2300000;
+    private static final int MAX_STOCKS = 99;
+    private static final int DIFF_PRICE = 21;
     private static final int DEL_FACTOR = 17;
     private static final String PATH = "stock_orders.xml";
     
@@ -52,7 +52,7 @@ public class Generator {
     // <AddOrder book="stock-1" operation="SELL" price="100.50" volume="81" orderId="1" />
     private static String getAddOrder(int id) {
         final String template = 
-            "<AddOrder book=\"stock-%d\" operation=\"%s\" price=\"%.2f\" volume=\"%d\" orderId=\"%d\" />";
+            "<AddOrder book=\"stock-%d\" operation=\"%s\" price=\"%.1f\" volume=\"%d\" orderId=\"%d\" />";
         int stock = getInt(1, MAX_STOCKS);
         String operation = getOperation();
         float price = getPrice();
@@ -74,6 +74,6 @@ public class Generator {
     }
 
     private static float getPrice() {
-        return gen.nextFloat() * MAX_PRICE;
+        return 100 + gen.nextFloat() * DIFF_PRICE;
     }
 }

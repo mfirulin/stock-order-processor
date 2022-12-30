@@ -1,6 +1,7 @@
 import java.util.Objects;
 
 public class Order implements Comparable<Order> {
+
     public enum Operation { BUY, SELL }
 
     public final int id;
@@ -10,7 +11,7 @@ public class Order implements Comparable<Order> {
     public final int volume;
 
     public Order(int id) {
-        this(id, "", Operation.BUY, 0.0f, 0);
+        this(id, "", Operation.BUY, 0f, 0);
     }
 
     public Order(int id, String book, Operation operation, float price, int volume) {
@@ -28,7 +29,7 @@ public class Order implements Comparable<Order> {
 
     @Override
     public String toString() {
-        return String.format("Order[id=%d book=%s operation=%s price=%.2f volume=%d]",
+        return String.format("Order[id=%d book=%s operation=%s price=%.1f volume=%d]",
             id, book, operation, price, volume);
     }
 
