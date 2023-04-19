@@ -39,13 +39,13 @@ public class Book {
         builder.append(' ');
         builder.append("size=");
         builder.append(pairs.size());
-        builder.append('\n');
-        for (Map.Entry<Float, Pair> entry : pairs.entrySet()) {
-            builder.append(
-                String.format("%6d %7.1f %6d\n", 
-                entry.getValue().buy, entry.getKey(), entry.getValue().sell)
-            );
-        }
+        // builder.append('\n');
+        // for (Map.Entry<Float, Pair> entry : pairs.entrySet()) {
+        //     builder.append(
+        //         String.format("%6d %7.1f %6d\n", 
+        //         entry.getValue().buy, entry.getKey(), entry.getValue().sell)
+        //     );
+        // }
         builder.append(']');
         return builder.toString();
     }
@@ -57,7 +57,7 @@ public class Book {
         if (getClass() != other.getClass()) return false;
 
         Book otherBook = (Book)other;
-        return name == otherBook.name;
+        return Objects.equals(name, otherBook.name);
     }
 
     @Override
